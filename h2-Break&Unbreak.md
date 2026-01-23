@@ -1,6 +1,6 @@
 # Break & Unbreak
 
-x) Summary
+## x) Summary
   - OWASP: OWASP Top 10: https://owasp.org/Top10/2021/A01_2021-Broken_Access_Control/index.html
     - Rikkinäinen pääsynhallinta luo merkittävän tietovuotoriskin, tällöin luvatonta tietoa voi paljastua, sitä voidaan muokata tai jopa tuhota
     - Yleisimpiä pääsynhallinnan haavoittuvuuksia: Least priviledge-oikeuden rikkoutuminen, API-pääsy ilman kattavaa tarkistusta, oikeuksien korotus, force browsing eli pakotettu sivustoselailu, metadatan manipulointi oikeuksien nostamiseksi. 
@@ -20,3 +20,38 @@ x) Summary
     - Todennus (Authentication) vahvistaa käyttäjän olevan se, jota hän väittää olevansa
     - Istunnonhallinta (Session Management) tunnistaa käyttäjän tekemät HTTP-pyynnöt
     - Pääsynhallinta määrittää saako käyttäjä tehdä/suorittaa tietyn toiminnon virtuaaliympäristössä
+
+  - Karvinen 2006: https://terokarvinen.com/2006/raportin-kirjoittaminen-4/
+    - Viittaa lähteisiin raporttia tehdessä. Tämä osoittaa, että tekijä on perehtynyt aiheeseen.
+    - Täsmällinen raportointi: Mitä komentoja käytin, onnistuiko, mitä tapahtui?
+    - Raportin helppolukuisuus, huolellinen kirjoituskieli, väliotsikot, otsikot.
+
+## a) Break into 010-staff-only.
+
+<img width="779" height="417" alt="image" src="https://github.com/user-attachments/assets/8b382eaa-470f-4eec-96de-1917f9024875" />
+
+<img width="896" height="308" alt="image" src="https://github.com/user-attachments/assets/974d78cb-c4de-47cb-bde0-8a880fd47846" />
+
+<img width="1919" height="989" alt="image" src="https://github.com/user-attachments/assets/2d4835c2-2853-431a-a641-3625265f578c" />
+
+<img width="926" height="568" alt="image" src="https://github.com/user-attachments/assets/d334cf1d-f1e2-4566-9f73-4333d71a36a8" />
+
+<img width="935" height="593" alt="image" src="https://github.com/user-attachments/assets/320ce580-3cf7-4c89-9574-642cd81f1ecb" />
+
+<img width="564" height="421" alt="image" src="https://github.com/user-attachments/assets/2dbf47c4-244c-468e-adb8-373e012caf9a" />
+
+
+<img width="405" height="727" alt="image" src="https://github.com/user-attachments/assets/657f0803-76c4-46f2-b855-8d6754cb8963" />
+- 0' OR 1=1 LIMIT 1 OFFSET 2 -- = SUPERADMIN%%rootALL-FLAG{Tero-e45f8764675e4463db969473b6d0fcdd}
+
+Lähdekoodin haavoittuvuuden korjaus:
+
+<img width="959" height="932" alt="image" src="https://github.com/user-attachments/assets/bd5ba800-7617-40f6-8eda-13f30ba72ddf" />
+
+
+
+
+
+
+
+
