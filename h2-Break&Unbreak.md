@@ -44,9 +44,27 @@
 <img width="405" height="727" alt="image" src="https://github.com/user-attachments/assets/657f0803-76c4-46f2-b855-8d6754cb8963" />
 - 0' OR 1=1 LIMIT 1 OFFSET 2 -- = SUPERADMIN%%rootALL-FLAG{Tero-e45f8764675e4463db969473b6d0fcdd}
 
-Lähdekoodin haavoittuvuuden korjaus:
+## b) Lähdekoodin haavoittuvuuden korjaus:
 
 <img width="959" height="932" alt="image" src="https://github.com/user-attachments/assets/bd5ba800-7617-40f6-8eda-13f30ba72ddf" />
+
+<img width="576" height="171" alt="image" src="https://github.com/user-attachments/assets/3049c83c-43a9-4871-b5b7-6fccb0273f1a" />
+
+<img width="959" height="571" alt="image" src="https://github.com/user-attachments/assets/86e1ea60-0fd0-4d44-87ff-055d97d7ab0a" />
+
+<img width="388" height="464" alt="image" src="https://github.com/user-attachments/assets/d3b9a9b1-bc98-42f5-be6c-7cc05efb729b" />
+
+## c) Piilotettujen verkkohakemistojen löytäminen ffuff:lla
+
+<img width="948" height="721" alt="image" src="https://github.com/user-attachments/assets/5ac5d99d-57e3-4ba3-8ef7-aaa5b172f40b" />
+
+
+
+
+
+
+
+
 
 
 
