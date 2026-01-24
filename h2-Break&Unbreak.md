@@ -111,7 +111,21 @@ Tässä tehtävässä etsin piilotettuja hakemistoja fuzzaamalla Ffufilla, joita
 
 ## d) 020-Your-eyes-only
 
+Tavoitteena on päästä hallintakonsoli sivulle, tutkimatta lähdekoodia. Aloitin tämän tehtävän installoimalla virtuaali ympäristön luojan ja ajamalla tarvittavan nettisivun käyntiin. Komennot saatu seuraavalta sivulta (https://terokarvinen.com/hack-n-fix/#tips) `virtualenv`
+- `sudo apt-get -y install virtualenv`
+- `virtualenv virtualenv/ -p python3 --system-site-packages`
+-  `source virtualenv/bin/activate`
+-  `cat requirements.txt`
+-  `pip install -r requirements.txt`
+-  `cd logtin/`
+-  `./manage.py makemigrations; ./manage.py migrate`
+-  `./manage.py runserver`
+
 <img width="1142" height="549" alt="image" src="https://github.com/user-attachments/assets/1fb5436a-d88a-4cbe-bac9-44ecab35c2cb" />
+
+Päästyäni verkkosivulle loin sivustolle käyttäjän ja tutkin kaikkia sivulta käytettäviä elementtejä ja sivusto-ohjauksia. Kokeilin laittaa URL-osoitteen perään `/admin` ja se ohjasi minut 404-sivulle. Lueskellessani sivustoa huomasin, että Djangon listasi yrittämiään URL-patterneja, joista viides näytti sellaiselta mitä en ollut nähnyt vielä sivuston URL-osoitteiden perässä. Kokeilin tätä ja siinä koko tehtävän ydin olikin. Osoite palautti 404-forbidden sivuston, joka tässä tapauksessa oli Admin secret page.
+
+Tämän tehtävän olisi myös voinut Fuzzata Ffufilla, mutta en hyödyntänyt sitä tässä. Tässä tehtävässä on mainio esimerkki tietovuodosta, joita voi ilmetä sivustoilla. Tietovuodon loi `DEBUG=True` parametri, sekä `views.py` tiedostossa määritelty testifunktio.
 
 <img width="535" height="274" alt="image" src="https://github.com/user-attachments/assets/38776641-e6eb-479d-b19d-d7b56e439ab6" />
 
@@ -119,11 +133,31 @@ Tässä tehtävässä etsin piilotettuja hakemistoja fuzzaamalla Ffufilla, joita
 
 ## e) 020-Your-eyes-only haavoittuvuus
 
+Korjasin tämän tehtävän haavoittuvuuden muuttamalla python koodia `Logtin/hats/views.py` viimeisen testifunktion kohdalle, josta puuttui `return self.request.user.is_authenticated and self.request.user.is_staff`
+
 <img width="889" height="76" alt="image" src="https://github.com/user-attachments/assets/9afdd8bf-474f-4d74-b8f1-304334e5c57d" />
+
+Kävin kokeilemassa muutetutlla python koodilla ja sain 403-forbidden sivuston eli sain haavoittuvuuden korjattua.
 
 <img width="378" height="105" alt="image" src="https://github.com/user-attachments/assets/9edb990d-4f2d-4837-a725-729e241a9501" />
 
 ### Tehtäväyhteenveto & Lähteet
+
+Tehtävissä meni kauan aikaa, tein ne kahden päivän aikana vajaa 10h kului. Todella paljon uusia asioita ja hakkerointiin liittyvät jutut vielä alkuraapaisua itselleni. Tehtävät olivat hyviä kuitenkin ja koen, että sain hyvät eväät SQL:ään ja Fuzzaamiseen.
+
+Tero Karvinen: https://terokarvinen.com/application-hacking/
+
+OWASP: OWASP Top 10: https://owasp.org/Top10/2021/A01_2021-Broken_Access_Control/index.html
+
+PortSwigger: https://portswigger.net/web-security/access-control
+
+PortSwigger 2020: https://www.youtube.com/watch?v=wX6tszfgYp4
+
+Karvinen 2006: https://terokarvinen.com/2006/raportin-kirjoittaminen-4/
+
+Robin Niinemets 2024: https://rbin.dev/diary/entries/diary.html?entry=SH24-002&week=
+
+Hack-n-fix tips by Tero Karvinen: https://terokarvinen.com/hack-n-fix/#tips
 
 
 
