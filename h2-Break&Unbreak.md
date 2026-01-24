@@ -78,6 +78,8 @@ Lähdin tutkimaan lähdekoodia katsomalla `cat staff-only.py` komennolla python 
 
 ## c) Piilotettujen verkkohakemistojen löytäminen ffuff:lla
 
+Alkuun latasin tarvittavat ohjelmat ja materiaalit tehtäviä varten ja kokeilin vain FFUFIN käyttöä tekemällä `dirfuzt-0` tehtävän. En selosta siitä sen tarkemmin, sillä `dirfuzt-1` on läksyjen kannalta olennainen tehtävä.
+
 <img width="948" height="721" alt="image" src="https://github.com/user-attachments/assets/5ac5d99d-57e3-4ba3-8ef7-aaa5b172f40b" />
 
 <img width="840" height="522" alt="image" src="https://github.com/user-attachments/assets/4825279c-46f3-49ce-bf42-a8e0596419b5" />
@@ -86,7 +88,20 @@ Lähdin tutkimaan lähdekoodia katsomalla `cat staff-only.py` komennolla python 
 
 <img width="872" height="313" alt="image" src="https://github.com/user-attachments/assets/7c6d8d85-aeee-4870-a1ca-f7bd34549ff1" />
 
+Tässä tehtävässä etsin piilotettuja hakemistoja fuzzaamalla Ffufilla, joita ei näy selaimessa nettisivulla.
+
+- `dirfuzt-1`-tehtävän tarkoituksena oli löytää admin sivun ja versionhallinta sivun URL-osoitteet, joista saa selville lipun.
+- `dirfuzt-1`-tehtävän aluksi latasin teron sivulta zip-paketin tehtävään
+- `$ sudo apt-get update` `$ sudo apt-get install ffuf`
+- Latasin Seclististä wordlistin `wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/common.txt`
+- Aloitin fuzzaasimen ajamalla `ffuff -w common.txt -u "http://127.0.0.2.8000/FUZZ" -fs 134`, jälkeen päin kokeilin samaa, mutta perään `-fs 154`
+- Tämän jälkeen salaisia hakemistoja paljastui ja kokeilin kirjoittaa niitä URL:iin = /wp-admin onnistui, sekä .git. Nämä olivat tehtävän tavoitteita. Onnistui!
+- Palvelimella voi olla salaisia hakemistoja, joita ei suoraan näy sivulla, tätä varten Ffufin käyttäminen toimii. Wordlisti ja Ffuf-fuzzing mahdollistaa automaattisen yleisten nimityksien kokeilun ja palauttaa CLI:hin vaihtoehtoja hakemistoista.
+- Huomasin, kun `-fs` oli väärän kokoinen se palautti todella vastauksia, kun taas oikean kokoisena tulokset olivat pienempiä, mutta tarkempia.
+- Lopulta varmistin hakemistot kirjoittamalla URL:iin Fuzzaamani hakemistot.
+
 <img width="948" height="615" alt="image" src="https://github.com/user-attachments/assets/b775f30c-cd92-40ab-bfef-763cf0a32256" />
+
 - /wp-admin = FLAG{tero-wpadmin-3364c855a2ac87341fc7bcbda955b580}
 - /.git = FLAG{tero-git-3cc87212bcd411686a3b9e547d47fc51}
 
