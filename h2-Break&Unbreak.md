@@ -58,6 +58,47 @@
 
 <img width="948" height="721" alt="image" src="https://github.com/user-attachments/assets/5ac5d99d-57e3-4ba3-8ef7-aaa5b172f40b" />
 
+<img width="840" height="522" alt="image" src="https://github.com/user-attachments/assets/4825279c-46f3-49ce-bf42-a8e0596419b5" />
+
+<img width="300" height="149" alt="image" src="https://github.com/user-attachments/assets/e5b4f3fb-f63b-4869-adfc-c3017f9f9203" />
+
+<img width="872" height="313" alt="image" src="https://github.com/user-attachments/assets/7c6d8d85-aeee-4870-a1ca-f7bd34549ff1" />
+
+<img width="948" height="615" alt="image" src="https://github.com/user-attachments/assets/b775f30c-cd92-40ab-bfef-763cf0a32256" />
+- /wp-admin = FLAG{tero-wpadmin-3364c855a2ac87341fc7bcbda955b580}
+- /.git = FLAG{tero-git-3cc87212bcd411686a3b9e547d47fc51}
+
+<img width="380" height="157" alt="image" src="https://github.com/user-attachments/assets/a68de531-2c9c-4fbd-bb89-a8ad70d75d7c" />
+
+<img width="434" height="171" alt="image" src="https://github.com/user-attachments/assets/0ad26df0-3ce1-420a-b6b3-0e4fb103251f" />
+
+## d) 020-Your-eyes-only
+
+<img width="1142" height="549" alt="image" src="https://github.com/user-attachments/assets/1fb5436a-d88a-4cbe-bac9-44ecab35c2cb" />
+
+<img width="535" height="274" alt="image" src="https://github.com/user-attachments/assets/38776641-e6eb-479d-b19d-d7b56e439ab6" />
+
+<img width="453" height="355" alt="image" src="https://github.com/user-attachments/assets/dd876526-adb7-4eac-bbe4-ac628a570d38" />
+
+## e) 020-Your-eyes-only haavoittuvuus
+
+<img width="889" height="76" alt="image" src="https://github.com/user-attachments/assets/9afdd8bf-474f-4d74-b8f1-304334e5c57d" />
+
+<img width="378" height="105" alt="image" src="https://github.com/user-attachments/assets/9edb990d-4f2d-4837-a725-729e241a9501" />
+
+### Tehtäväyhteenveto & Lähteet
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
