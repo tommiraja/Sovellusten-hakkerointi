@@ -28,12 +28,25 @@
 
 ## a) Break into 010-staff-only.
 
+Tehtävän tarkoituksena on löytää admin-salasana ja lipuke SQL-injektion avulla.
+
+Aluksi latasin https://terokarvinen.com/hack-n-fix/ sivulta tehtävien zip-tiedoston, unzippasin sen ja pystytin serverin päälle. Minun tuli tehdä tämä hieman eritavalla käyttämällä porttiohjausta, sillä tein tehtävät Vagrantin avulla. 
+
 <img width="779" height="417" alt="image" src="https://github.com/user-attachments/assets/8b382eaa-470f-4eec-96de-1917f9024875" />
 
 <img width="896" height="308" alt="image" src="https://github.com/user-attachments/assets/974d78cb-c4de-47cb-bde0-8a880fd47846" />
 
 <img width="1919" height="989" alt="image" src="https://github.com/user-attachments/assets/2d4835c2-2853-431a-a641-3625265f578c" />
 
+Sitten oli aika selvittää admin pinniä, jotta löytäisin lipun. Kokeilin aluksi "0" & "123",  joka antoi salasanaksi "Somedude", sitten "321" joka antoi salasanaksi "foo".
+
+Lähdin tutkimaan nettisivun selainkonsolia ja sieltä HTML-koodia. Huomasin kohdan `type=number` . Tarkoituksena oli päästä kirjoittamaan laatikkoon muitakin merkkejä, kuin numeroita vaihdoin sen siis `type=text` muotoon. 
+
+Kokeilin kaikkia vinkeistä löytyviä kikkoja ja yhdistin niitä. mm:
+- 0' OR 1=1 LIMIT 1 OFFSET 0 -- 
+- 0' OR 1=1 LIMIT 1 OFFSET 1 -- 
+- 0' OR 1=1 LIMIT 1 OFFSET 2 -- = Tämä SQL-injektio antoi oikean salasanan ja flagin.
+ 
 <img width="926" height="568" alt="image" src="https://github.com/user-attachments/assets/d334cf1d-f1e2-4566-9f73-4333d71a36a8" />
 
 <img width="935" height="593" alt="image" src="https://github.com/user-attachments/assets/320ce580-3cf7-4c89-9574-642cd81f1ecb" />
@@ -42,17 +55,26 @@
 
 
 <img width="405" height="727" alt="image" src="https://github.com/user-attachments/assets/657f0803-76c4-46f2-b855-8d6754cb8963" />
+
 - 0' OR 1=1 LIMIT 1 OFFSET 2 -- = SUPERADMIN%%rootALL-FLAG{Tero-e45f8764675e4463db969473b6d0fcdd}
 
 ## b) Lähdekoodin haavoittuvuuden korjaus:
 
+Lähdin tutkimaan lähdekoodia katsomalla `cat staff-only.py` komennolla python tiedostoa. En oikeen aluksi saanut selvää, missä kohtaa haavoittuvuus ilmenee. Tutkin tehtäviin liittyviä vinkkejä ja löysin, että haavoittuvuus ilmenee kohdassa `SELECT password`.
+
 <img width="959" height="932" alt="image" src="https://github.com/user-attachments/assets/bd5ba800-7617-40f6-8eda-13f30ba72ddf" />
+
+- Vaihdoin SQL-koodia seuraavanlaiseen muotoon ja lisäsin `pin2 = ... `. 
+- Aikaisemmin pin oli liitetty merkkijonona SQL:ään, joka mahdollisti SQL-kyselyn manipulointia ja lopulta admin salasanan paljastumisen.
+- Korjattu SQL-pätkä muuttaa syötteen käsittelyä niin, että se on erillinen parametrinsa, tällöin se ei suoraan mene käsi kädessä osana SQL-komentoa vaan se käsitellään yksittäisenä tietona.
 
 <img width="576" height="171" alt="image" src="https://github.com/user-attachments/assets/3049c83c-43a9-4871-b5b7-6fccb0273f1a" />
 
 <img width="959" height="571" alt="image" src="https://github.com/user-attachments/assets/86e1ea60-0fd0-4d44-87ff-055d97d7ab0a" />
 
 <img width="388" height="464" alt="image" src="https://github.com/user-attachments/assets/d3b9a9b1-bc98-42f5-be6c-7cc05efb729b" />
+
+- Lopuksi kokeilin, että toimiiko tekemäni muutokset ja näytti toimivan! Sama SQL-injektio ei enään antanut admin salasanaa.
 
 ## c) Piilotettujen verkkohakemistojen löytäminen ffuff:lla
 
