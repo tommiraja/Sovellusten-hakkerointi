@@ -23,6 +23,17 @@ My debian 13 didn't have strings, so I looked it up on web and found `sudo apt-g
 <img width="655" height="529" alt="image" src="https://github.com/user-attachments/assets/0cc9d902-9cb5-46af-9d3f-8607a4bb42df" />
 - We can see now the password doesn't show up or it's actually reconstructed as in XOR
 
+## c) Unpacking files can reveal secrets :O
+
+<img width="282" height="188" alt="image" src="https://github.com/user-attachments/assets/6437fd71-dc7b-4fda-a585-26fd05c2f3b8" />
+
+
+<img width="655" height="111" alt="image" src="https://github.com/user-attachments/assets/04d1f707-c248-4c70-bfe8-36fd7e3916df" />
+
+<img width="836" height="186" alt="image" src="https://github.com/user-attachments/assets/d0f3c34d-024a-402a-8af6-5ada2762fb51" />
+- The flag and password shows up now with `cat packd`
+
+
 
 
 
