@@ -25,13 +25,18 @@ My debian 13 didn't have strings, so I looked it up on web and found `sudo apt-g
 
 ## c) Unpacking files can reveal secrets :O
 
-<img width="282" height="188" alt="image" src="https://github.com/user-attachments/assets/6437fd71-dc7b-4fda-a585-26fd05c2f3b8" />
+- Tried `strings packd` first. Couldn't spot the full password or flag, they were half visible
+- Inspected the printable characters and saw they were packed with UPX-packer
+- Then I installed UPX to my vm `sudo apt-get install -y upx
+- Unpacked the file by `upx -d packd`
+- Then tried to string it again `strings packd` and we can see that the password and flag was fully shown now
 
+<img width="282" height="188" alt="image" src="https://github.com/user-attachments/assets/6437fd71-dc7b-4fda-a585-26fd05c2f3b8" />
 
 <img width="655" height="111" alt="image" src="https://github.com/user-attachments/assets/04d1f707-c248-4c70-bfe8-36fd7e3916df" />
 
 <img width="836" height="186" alt="image" src="https://github.com/user-attachments/assets/d0f3c34d-024a-402a-8af6-5ada2762fb51" />
-- The flag and password shows up now with `cat packd`
+- The flag and password shows up now with `cat packd` interesting
 
 
 
