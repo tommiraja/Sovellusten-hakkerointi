@@ -21,7 +21,7 @@ My debian 13 didn't have strings, so I looked it up on web and found `sudo apt-g
 - Compile it by `gcc passtr.c -o passtr.5`
 - Let's try `strings passtr.5`
 <img width="655" height="529" alt="image" src="https://github.com/user-attachments/assets/0cc9d902-9cb5-46af-9d3f-8607a4bb42df" />
-
+- We can see now the password doesn't show up or it's actually reconstructed as in XOR
 
 
 
