@@ -59,7 +59,7 @@ Sources:
 - Medium.com (2023): https://medium.com/@berastis/demystifying-xor-the-power-of-the-exclusive-or-in-programming-1d581f914a68
 - UPX GitHub: https://github.com/upx/upx
 - Linux.fi GNU Binutils (2015): https://www.linux.fi/wiki/GNU_Binutils
-- 
+ 
 
 
 
