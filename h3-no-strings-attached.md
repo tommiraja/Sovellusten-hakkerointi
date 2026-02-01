@@ -20,11 +20,13 @@ My debian 13 didn't have strings, so I looked it up on web and found `sudo apt-g
 ## b) Hiding the password from the binary
 
 - I have to tweak the program in C language to hide the password so it won't be detected using the `strings` (Have no idea how so I gotta research)
-- Asked ChatGPT for help and it suggested me to make python file which prints me non printable characters by XOR-operation which translates the printable ASCII-code to unclear obfuscated data, basically creating binaryblock so that `strings` won`t scan readable binarydata.
+- C-programming language is foreign to me so I decided to ask tips from AI
+- Asked ChatGPT for help and it suggested me to make C-file which prints me non printable characters by XOR-operation which translates the printable ASCII-code to unclear obfuscated data, basically creating binaryblock so that `strings` won`t scan readable binarydata.
+- The original visible password will be hid as in XOR-bytes `6h~xi~o` which takes place when the program is ran by the user. 
   
 <img width="838" height="569" alt="image" src="https://github.com/user-attachments/assets/bda9e66d-3d66-457d-a0d9-415bff84d8d1" />
 
-- Let´s Compile it by `gcc passtr.c -o passtr.5`
+- Let´s Compile it by `gcc passtr.c -o passtr.5` so we name a new version of the C.file
 
 - Let's try `strings passtr.5`
 
@@ -55,7 +57,7 @@ My debian 13 didn't have strings, so I looked it up on web and found `sudo apt-g
 
 Sources:
 - Tero Karvinen website: https://terokarvinen.com/application-hacking/#h3-no-strings-attached-tero
-- ChatGPT 5.2
+- ChatGPT 5.2, regarding to exercise b. Helped to create
 - Medium.com (2023): https://medium.com/@berastis/demystifying-xor-the-power-of-the-exclusive-or-in-programming-1d581f914a68
 - UPX GitHub: https://github.com/upx/upx
 - Linux.fi GNU Binutils (2015): https://www.linux.fi/wiki/GNU_Binutils
