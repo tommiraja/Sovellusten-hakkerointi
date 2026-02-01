@@ -15,14 +15,16 @@ My debian 13 didn't have strings, so I looked it up on web and found `sudo apt-g
   
 <img width="627" height="76" alt="image" src="https://github.com/user-attachments/assets/7abb7f4f-1a9b-4c4e-a052-6548dd007a02" />
 
+- The Strings command prints all the readable characters of the binary file, which reveals the password and flag 
+
 ## b) Hiding the password from the binary
 
 - I have to tweak the program in C language to hide the password so it won't be detected using the `strings` (Have no idea how so I gotta research)
-- Asked ChatGPT for help and it suggested me to make python file which prints me non printable characters
+- Asked ChatGPT for help and it suggested me to make python file which prints me non printable characters by XOR-operation which translates the printable ASCII-code to unclear obfuscated data, basically creating binaryblock so that `strings` won`t scan readable binarydata.
   
 <img width="838" height="569" alt="image" src="https://github.com/user-attachments/assets/bda9e66d-3d66-457d-a0d9-415bff84d8d1" />
 
-- Compile it by `gcc passtr.c -o passtr.5`
+- Let´s Compile it by `gcc passtr.c -o passtr.5`
 
 - Let's try `strings passtr.5`
 
@@ -34,7 +36,7 @@ My debian 13 didn't have strings, so I looked it up on web and found `sudo apt-g
 
 - Tried `strings packd` first. Couldn't spot the full password or flag, they were half visible
 - I started to look for different options, checked for tips from
-- Tero´s website. Inspected the printable characters and saw they were packed with UPX-packer
+- Tero´s website. Inspected the printable strings characters and saw they were packed with UPX-packer
 - I started to dig the web and looked up information about UPX packer. It´s a free open-source tool for compressing files.
 - Then I installed UPX to my vm `sudo apt-get install -y upx
 - Unpacked the file by `upx -d packd`
@@ -48,7 +50,16 @@ My debian 13 didn't have strings, so I looked it up on web and found `sudo apt-g
 
 - The flag and password shows up now with `cat packd` interesting
 
--  
+-  So basically we managed to reveal the whole password by unpacking the file with UPX
+- Before packing the files with UPX-packer the file consists binarydata which are ASCII-characters and the command `upx -d packd` decompressed the binaryfile and the original binary data became back to visible which `strings` could print out.
+
+Sources:
+- Tero Karvinen website: https://terokarvinen.com/application-hacking/#h3-no-strings-attached-tero
+- ChatGPT 5.2
+- Medium.com (2023): https://medium.com/@berastis/demystifying-xor-the-power-of-the-exclusive-or-in-programming-1d581f914a68
+- UPX GitHub: https://github.com/upx/upx
+- Linux.fi GNU Binutils (2015): https://www.linux.fi/wiki/GNU_Binutils
+- 
 
 
 
