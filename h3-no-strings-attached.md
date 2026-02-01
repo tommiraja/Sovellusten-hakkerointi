@@ -10,16 +10,22 @@
 My debian 13 didn't have strings, so I looked it up on web and found `sudo apt-get install binutils`
 - Let's try it now `strings passtr`
 <img width="722" height="409" alt="image" src="https://github.com/user-attachments/assets/f3fe1856-c013-48bb-9179-af41f40a6ef5" />
+
 - We can see it's `Sala-hakkeri-321` plus we see the flag
+  
 <img width="627" height="76" alt="image" src="https://github.com/user-attachments/assets/7abb7f4f-1a9b-4c4e-a052-6548dd007a02" />
 
 ## b) Hiding the password from the binary
 
 - I have to tweak the program in C language to hide the password so it won't be detected using the `strings` (Have no idea how so I gotta research)
 - Asked ChatGPT for help and it suggested me to make python file which prints me non printable characters
+  
 <img width="838" height="569" alt="image" src="https://github.com/user-attachments/assets/bda9e66d-3d66-457d-a0d9-415bff84d8d1" />
+
 - Compile it by `gcc passtr.c -o passtr.5`
+
 - Let's try `strings passtr.5`
+
 <img width="655" height="529" alt="image" src="https://github.com/user-attachments/assets/0cc9d902-9cb5-46af-9d3f-8607a4bb42df" />
 
 - We can see now the password doesn't show up or it's actually reconstructed as in XOR
@@ -27,7 +33,9 @@ My debian 13 didn't have strings, so I looked it up on web and found `sudo apt-g
 ## c) Unpacking files can reveal secrets :O
 
 - Tried `strings packd` first. Couldn't spot the full password or flag, they were half visible
-- Inspected the printable characters and saw they were packed with UPX-packer
+- I started to look for different options, checked for tips from
+- Tero´s website. Inspected the printable characters and saw they were packed with UPX-packer
+- I started to dig the web and looked up information about UPX packer. It´s a free open-source tool for compressing files.
 - Then I installed UPX to my vm `sudo apt-get install -y upx
 - Unpacked the file by `upx -d packd`
 - Then tried to string it again `strings packd` and we can see that the password and flag was fully shown now
@@ -37,7 +45,10 @@ My debian 13 didn't have strings, so I looked it up on web and found `sudo apt-g
 <img width="655" height="111" alt="image" src="https://github.com/user-attachments/assets/04d1f707-c248-4c70-bfe8-36fd7e3916df" />
 
 <img width="836" height="186" alt="image" src="https://github.com/user-attachments/assets/d0f3c34d-024a-402a-8af6-5ada2762fb51" />
+
 - The flag and password shows up now with `cat packd` interesting
+
+-  
 
 
 
