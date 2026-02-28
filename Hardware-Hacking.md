@@ -105,7 +105,12 @@
 
 <img width="503" height="431" alt="image" src="https://github.com/user-attachments/assets/e11a0fa9-5eca-4028-92dc-ad45ece8e855" />
 
-- Ghidra käsittely jää vielä keskeneräiseksi tältäosin, sillä en kerkeä selvittämään tehtävää ennen deadlineä
+- Ghidra käsittely jää vielä keskeneräiseksi tältäosin, sillä en kerkeä selvittämään tehtävää ennen deadlineä.
 - Selvitän huomenna 29.02.2026 salasanaa tarkemmin!
 
+## Lähteet:
+- https://quentinkaiser.be/security/2025/07/25/rooting-tapo-c200/
+- HHmoodle sovellusten hakkerointi ja haavoittuvuudet kurssi
+- Tp-link-decrypt GitRepo https://github.com/robbins/tp-link-decrypt
+- 
 
