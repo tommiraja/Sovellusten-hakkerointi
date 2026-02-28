@@ -48,7 +48,7 @@
 
 - Huomataan että seuraavat kolme tiedostoa syntyivät
 
-## 3. Extracting Rootfs
+## 3 & 4. Extracting Rootfs
 
 - Siirrytään kansioon `cd _Tapo_C200v4_en_1.4.2.bin.dec.extracted/` ja katsotaan mitä se sisältää `ls -la`
 
@@ -56,13 +56,37 @@
 
 - Squashfs-root näkyvissä, tutkitaan sitä!
 - Etenin tiedostoon ja listasin kansion, katsoin `bin` tiedostoa ja huomataan, että executable ohjelmia, sekä `main` ohjelma näkyy, tätä ohjelmaa tulen todennäköisesti tutkimaan kun etsin salasanaa
-- Tutkitaan nopeasti mitä filejä on kyseessä `file (TIEDOSTONIMI)` ja `strings`
+- Tutkitaan nopeasti mitä filejä on kyseessä `file (TIEDOSTONIMI)` ja `strings`, en kuitenkaan saanut selkoa stringsien kautta ja kaikki tiedostost olivat elf-32 executable, nämäkään eivät kertoneet kaikkea. Hyödynsin tekoälyä tässä vaiheessa ja kysyin "Mikä merkitys seuraavilla ohjelmilla voisi olla?
     - Date -> buysbox & dmesg -> busybox ovat ilmeisesti rikkoutuneuita BusyBoxin symlinkkejä 
-    - Main -> Pääohjelma, hyödyllinen Ghidrassa tms.
+    - Main -> Pääohjelma, hyödyllinen Ghidrassa salasanan kräkkäämisessä tms.
     - Gdbserver -> Debuggaus palvelin
     - Logcat -> Lokityökalu
-    - 
+    - Getcpuinfo -> Mahdollisesti laitevalmistajan apuohjelma, joka lukee laitteen CPU:ta
+    - Impdbg -> Debuggaustiedosto, joka sisältää logien dumpit ja testikomennot, taikka
+      kamerasensorin/encoderin testaustiedosto
+ 
 <img width="1057" height="88" alt="image" src="https://github.com/user-attachments/assets/16c83e03-4688-4183-8ade-0ad080ea8484" />
+
+- Tutkin vielä tulostettavia stringsejä `main` ohjelmasta `strings main | grep -i "password"`
+
+<img width="1281" height="717" alt="image" src="https://github.com/user-attachments/assets/7d1f5033-39f9-489e-95c0-ed00cc36e30c" />
+
+- Kiinnitin huomiota kohtaan `"Hash(password) = %s` -> Tämä viittaa siihen, että salasanaa käsitellään hashina eli salasanan tallennus tapahtuu mahdollisesti hashattuna (salattuna)
+- Huomataan myös kohdat `Encoding password: %s` ja `update_password` ehkä root-salasana generoidaan automaattisesti ja päivitetään?
+- Katsoin vielä main ohjelmaa `strings main | grep -i "root"`
+
+<img width="1250" height="561" alt="image" src="https://github.com/user-attachments/assets/918fb5a1-1720-47d8-b03c-18c7f0767f49" />
+
+<img width="470" height="381" alt="image" src="https://github.com/user-attachments/assets/56f9116e-9a8f-42ed-b289-29fc3a94a8ea" />
+
+<img width="905" height="549" alt="image" src="https://github.com/user-attachments/assets/88397b6c-b5d1-430d-bff7-5f86154bc4c8" />
+
+
+- Salasana on todennäköisesti piilotettu, sillä mitään oikeannäköisiä arvoja ei saatu selville stringsien avulla.
+
+
+## 5 & 6. Available applications and password hunt.
+
 
 
 
