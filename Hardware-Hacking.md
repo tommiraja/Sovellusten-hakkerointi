@@ -21,9 +21,10 @@
 
 <img width="930" height="178" alt="image" src="https://github.com/user-attachments/assets/7f906955-df81-491c-905b-4599a86cca7e" />
 
-- Errori johtui siitä, että `extract_keys.sh` skripti ei luonut koskaan `RSA_0.h`
-- Tässä vaiheessa kysyin tekoälyltä apua ja se esitti ratkaisuksi `venv`
-- ...
+- Errori johtui siitä, että `extract_keys.sh` skripti ei luonut koskaan `RSA_0.h`. Virtuaalikoneeltani puuttui tiettyjä purkutyökaluja, jonka seurauksena RSA-headerien generointi ei toiminut.
+- Tässä vaiheessa kysyin tekoälyltä apua ja se esitti ratkaisuksi `venv` eli virtuaaliympäristön luominen, johon asennetaan tarvittavat työkalut
+- Loin projektille oma virtuaaliympäristön `python3 -m venv .venv`, aktivoin sen -> `source.venv/bin/activate` ja sitten asensin ympäristöön tarvittavat purkutyökalut `ubi-reader, jefferson`. Tämän jälkeen projektin kääntäminen onnistui komennolla `make`.
+ 
 - Ajoin `./extract_keys.sh example.jpg`
 
 <img width="1010" height="361" alt="image" src="https://github.com/user-attachments/assets/0cc7d518-21b6-40d0-a355-5cbf2eea04a3" />
