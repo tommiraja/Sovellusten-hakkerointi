@@ -113,5 +113,5 @@
 - https://quentinkaiser.be/security/2025/07/25/rooting-tapo-c200/
 - HHmoodle sovellusten hakkerointi ja haavoittuvuudet kurssi
 - Tp-link-decrypt GitRepo https://github.com/robbins/tp-link-decrypt
-- 
+- OpenAI, ChatGPT 5.2 tekoälymallia hyödynnetty  firmware imagen dekryptoinnin error-kohdissa, Squashfs-root ohjelmien merkityksen selvittämisessä, sekä 
 
