@@ -73,7 +73,7 @@
 
 - Kiinnitin huomiota kohtaan `"Hash(password) = %s` -> Tämä viittaa siihen, että salasanaa käsitellään hashina eli salasanan tallennus tapahtuu mahdollisesti hashattuna (salattuna)
 - Huomataan myös kohdat `Encoding password: %s` ja `update_password` ehkä root-salasana generoidaan automaattisesti ja päivitetään?
-- Katsoin vielä main ohjelmaa `strings main | grep -i "root"`
+- Katsoin vielä main ohjelmaa `strings main | grep -i "root"`,
 
 <img width="1250" height="561" alt="image" src="https://github.com/user-attachments/assets/918fb5a1-1720-47d8-b03c-18c7f0767f49" />
 
@@ -81,13 +81,31 @@
 
 <img width="905" height="549" alt="image" src="https://github.com/user-attachments/assets/88397b6c-b5d1-430d-bff7-5f86154bc4c8" />
 
-
+- Kuvien perusteella voidaan päätellä, että salasana käsitellään kryptografisesti ja ei ole selkokielisenä binäärissä. Kysyin tekoälyltä mikä tarkoitus `verifyThirdAccount`, `changeThirdAccount`, `getThirdAccount`, `setThirdAccount`, riveillä voisi olla. Sain vastaukseksi, että ne viittaavat kolmannen osapuolen käyttätiliin, mutta tästä ei kuitenkaan selvinnyt mitään kriittistä salasanan kräkkäämisen kannalta
 - Salasana on todennäköisesti piilotettu, sillä mitään oikeannäköisiä arvoja ei saatu selville stringsien avulla.
 
 
 ## 5 & 6. Available applications and password hunt.
+- Käytettävät ohjelmat käytiin äsken läpi, lähdetään etsimään salasanaa
+- Tutkitaan vielä muita `squashfs-root` hakemistoja 
+- En meinannut vieläkään löytää mitään tärkeää
+- Kokeilin greppailla main ohjelmaa `strings main | grep -i 'passwd'`
+
+ <img width="792" height="602" alt="image" src="https://github.com/user-attachments/assets/cd6100ab-74ac-428f-9d70-bbfa4a261dbf" />
+
+ - Outputti antoi polun `/tmp/temp_passwd`, tämä voisi viitata väliaikaisen salasanan käyttöönotto tai palautus toiminnolta, sekä toinen kohta joka merkitsi huomioni oli `factory_passwd` eli tehdas-salasanaa, joka voisi viitata root-salasanaan.
+
+- Päätin tässä vaiheessa ottaa Ghidran käyttöön, jos se paljastaisi meille jotain mielenkiintoista
+- Avasin Ghidran `./ghidraRun` -> New project -> Import file -> ...main
+
+<img width="849" height="648" alt="image" src="https://github.com/user-attachments/assets/68abfbb6-dab0-45ee-ae8f-d13a901e8c86" />
+
+- Suoritin auto analyysin
+- Menin entry pointtiin ja huomasin decompiler-ikkunassa funktion `FUN_0040bdb0`, tämä aloittaa main ohjelman logiikan, joten klikkasin sitä ja nimesin sen "TAPO_MAIN" funktioksi
+
+<img width="503" height="431" alt="image" src="https://github.com/user-attachments/assets/e11a0fa9-5eca-4028-92dc-ad45ece8e855" />
+
+- Ghidra käsittely jää vielä keskeneräiseksi tältäosin, sillä en kerkeä selvittämään tehtävää ennen deadlineä
+- Selvitän huomenna 29.02.2026 salasanaa tarkemmin!
 
 
-
-
- 
