@@ -1,5 +1,5 @@
 # Hardware Hacking
-## Tasks:
+## Tehtävät:
 1. Decrypt firmware image
 2. Analyse the image file
 3. Extract rootfs from the image file
