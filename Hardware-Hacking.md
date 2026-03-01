@@ -116,11 +116,12 @@
 
 <img width="745" height="584" alt="image" src="https://github.com/user-attachments/assets/de1d9196-a652-420f-a1f8-de55846a9c19" />
 
-- `uVar6 = FUN_0040...` tekee ciphertextin
-- `FUN_0042d850(pcVar3, auStack_58)`
+- Tämän jälkeen löysin vielä `gen_root_passwd` funktion
+- Decompile ikkunassa oli monia mielenkiintoisia polkuja "/user_management/hub_auth", "/user_management/root", en kuitenkaan saanut näistä apua tai inspiraatiota etsimään salasanaa syvemmin.
 
+<img width="1178" height="570" alt="image" src="https://github.com/user-attachments/assets/1d8c1a28-141f-428e-882a-78bfbcd8dabb" />
 
-
+<img width="587" height="308" alt="image" src="https://github.com/user-attachments/assets/bf045d23-963a-4727-9c10-325c72a426b0" />
 
 ## Lähteet:
 - https://quentinkaiser.be/security/2025/07/25/rooting-tapo-c200/
