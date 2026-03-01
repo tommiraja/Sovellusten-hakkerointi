@@ -117,11 +117,28 @@
 <img width="745" height="584" alt="image" src="https://github.com/user-attachments/assets/de1d9196-a652-420f-a1f8-de55846a9c19" />
 
 - Tämän jälkeen löysin vielä `gen_root_passwd` funktion
-- Decompile ikkunassa oli monia mielenkiintoisia polkuja "/user_management/hub_auth", "/user_management/root", en kuitenkaan saanut näistä apua tai inspiraatiota etsimään salasanaa syvemmin.
+- Decompile ikkunassa oli monia mielenkiintoisia polkuja "/user_management/hub_auth", "/user_management/root", en kuitenkaan saanut näistä apua tai inspiraatiota etsimään salasanaa syvemmin
 
 <img width="1178" height="570" alt="image" src="https://github.com/user-attachments/assets/1d8c1a28-141f-428e-882a-78bfbcd8dabb" />
 
 <img width="587" height="308" alt="image" src="https://github.com/user-attachments/assets/bf045d23-963a-4727-9c10-325c72a426b0" />
+
+<img width="491" height="85" alt="image" src="https://github.com/user-attachments/assets/9f995596-769b-45cc-8a8b-b4c4f4944c3e" />
+
+- Mietin, että voisiko binwalkin tiedostoista löytyä tällaisten stringien avulla vastauksia?
+- Tutkin hieman netistä apua komentooni ja opettelin grepin eri ominaisuuksia
+- Kokeilin komentoa `strings * | grep -iE factory_passwd`
+- `*` viitataan kaikkiin working directoryn sisältämiin tiedostoihin ja hakemistoihin, `strings` tulostaa tekstiltä näyttäviä merkkijonoja binääritiedostoista, `-iE` tekee "case-insensitive" + "extended regex", Grep suodattaa nyt merkkijonoja riveiltä, joissa tuo `factory_passwd` esiintyy
+
+<img width="1110" height="691" alt="image" src="https://github.com/user-attachments/assets/5f9a6917-844b-47c2-926c-8d2f75459d96" />
+
+- Hienoa paljastui jotakin, lisätään vielä komentoon lisää argumentteja
+- `strings * | grep -iE 'root|passwd'`
+- Greppi käy läpi kaikki mahdolliset hakemiston tiedostot, joten output tulostus oli todella pitkä, stoppasin vain jossain vaiheessa ja rupesin tutkimaan outputtia scrollaamalla ylös sitten löysin
+
+<img width="848" height="168" alt="image" src="https://github.com/user-attachments/assets/4e5dced1-cc05-4579-98ef-1d3893dfbc3a" />
+
+- Tämä riittää tältä osin!
 
 ## Lähteet:
 - https://quentinkaiser.be/security/2025/07/25/rooting-tapo-c200/
