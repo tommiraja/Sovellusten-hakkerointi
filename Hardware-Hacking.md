@@ -107,7 +107,20 @@
 <img width="503" height="431" alt="image" src="https://github.com/user-attachments/assets/e11a0fa9-5eca-4028-92dc-ad45ece8e855" />
 
 - Ghidra käsittely jää vielä keskeneräiseksi tältäosin, sillä en kerkeä selvittämään tehtävää ennen deadlineä.
-- Selvitän huomenna 29.02.2026 salasanaa tarkemmin!
+- Selvitän huomenna 1.03.2026 salasanaa tarkemmin!
+
+## 1.03.2026
+
+- Tutkin main ohjelmaa Ghidrassa aika pitkään koitin vain scrollata läpi analyysiä ja tutkia kaikkia mahdollisia funktioita
+- Löysin funktion `FUN_0042d918` ja sen sisältä muita mielenkiintoisia funktiota. Tämä funktio käsittelee mm. käyttäjätunnusta, salasanaa ja ciphertekstiä, joten uskon tämän olevan merkittävä löytö
+
+<img width="745" height="584" alt="image" src="https://github.com/user-attachments/assets/de1d9196-a652-420f-a1f8-de55846a9c19" />
+
+- `uVar6 = FUN_0040...` tekee ciphertextin
+- `FUN_0042d850(pcVar3, auStack_58)`
+
+
+
 
 ## Lähteet:
 - https://quentinkaiser.be/security/2025/07/25/rooting-tapo-c200/
